@@ -64,13 +64,15 @@ def convertToNumber(a):
     if not a:
         return a
 
-    t=0
+    t, t1 = 0, 0
     for i in range(0,len(a)): 
         if  ord(a[i]) > 57 or ord(a[i]) < 48:
-            if a[i] != '.' or t == 1 :
+            if (a[i] != '-' or t1 == 1 ) and (a[i] != '.' or t == 1) :
                 return a
             elif a[i] == '.':
                 t=1
+            elif a[i] == '-':
+                t1=1
 
     if t == 1:
         return float(a)
